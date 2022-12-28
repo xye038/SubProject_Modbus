@@ -62,5 +62,5 @@ uint16_t modbus_crc16( uint8_t * pFrame, uint16_t len )
         ucCRCLo = ( uint8_t )( ucCRCHi ^ aucCRCHi[iIndex] );
         ucCRCHi = aucCRCLo[iIndex];
     }
-    return ( uint16_t )( ucCRCHi << 8 | ucCRCLo );
+    return ( uint16_t )( ucCRCLo << 8 | ucCRCHi );
 }
