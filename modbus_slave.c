@@ -127,7 +127,7 @@ void ModbusSlave_Receive_DataProcess(ModbusSlave_Str *modbus_slave, uint8_t *rxB
             address = *(rxBuffer+2)<<8|*(rxBuffer+3);
             modbus_slave->length = *(rxBuffer+4)<<8|*(rxBuffer+5);
             modbus_slave->function_code = 0x10;
-            if(modbus_slave->length*2!=*(rxBuffer+6))
+             if((modbus_slave->length*2!=*(rxBuffer+6))||(*(rxBuffer+6)!=(length-9)))
             {
                 modbus_slave->state = LenError;
                 break;
